@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "Search";
+}
+
+@if (@ViewBag.CookTitle != null)
+{
+    <h1>Найденные рецепты : @ViewBag.CookTitle</h1>
+}
+else
+{
+    <h1> Ничего не нашлось </h1>
+}
