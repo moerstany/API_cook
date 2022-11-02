@@ -18,8 +18,14 @@ namespace API_cook.Controllers
             return View();
         }
 
-        public IActionResult Search(string title)
+        public async Task<IActionResult> Search(string title)
         {
+            HttpClient httpClient = new HttpClient();
+            var response = await httpClient.GetAsync($"https://api.spoonacular.com/food/products/search/?apiKey=72d9d866960d4beab8ef876566b4782d&query={title}");
+            var result= await response.Content.ReadAsStringAsync();
+            ViewBag.Result=result;
+            Console.WriteLine(result);
+
             ViewBag.CookTitle = title;  
             return View();
         }
