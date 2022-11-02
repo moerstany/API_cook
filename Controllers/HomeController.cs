@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using API_cook.Models;
+using API_cook.Servises;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API_cook.Controllers
@@ -7,10 +8,12 @@ namespace API_cook.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private CookApiService cookApiService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,CookApiService cookApiService)//добавили в контейнер сервис
         {
             _logger = logger;
+            this.cookApiService = cookApiService;//создали поле для сервиса
         }
 
         public IActionResult Index()
@@ -20,12 +23,8 @@ namespace API_cook.Controllers
 
         public async Task<IActionResult> Search(string title)
         {
-            HttpClient httpClient = new HttpClient();
-            var response = await httpClient.GetAsync($"https://api.spoonacular.com/food/products/search/?apiKey=72d9d866960d4beab8ef876566b4782d&query={title}");
-            var result= await response.Content.ReadAsStringAsync();
-            ViewBag.Result=result;
-            Console.WriteLine(result);
-
+            
+            ViewBag.Result= await cookApiService.SearchByTitle(title); // вызвали сервис поиска  
             ViewBag.CookTitle = title;  
             return View();
         }
