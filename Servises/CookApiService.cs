@@ -3,19 +3,21 @@
     public class CookApiService//создали объекты в классе
     {
         public string BaseUrl { get; set; }
+        public string ApiId { get; set; }
         public string ApiKey { get; set; }
         
         private HttpClient httpClient;
         public CookApiService()//инициализировали
-        {   //https://api.spoonacular.com/food/products/search/?apiKey=72d9d866960d4beab8ef876566b4782d&query={title}
-            BaseUrl = "https://api.spoonacular.com/food/products/search/";
-            ApiKey = "72d9d866960d4beab8ef876566b4782d";
+        {   //https://api.edamam.com/search?q=chicken&app_id=5ac8ac40&app_key=422c5935a5f0c1ada32f47d9108dcf61&from=0&to=3&calories=591-722&health=alcohol-free
+            BaseUrl = "https://api.edamam.com/search";
+            ApiId ="5ac8ac40";
+            ApiKey ="422c5935a5f0c1ada32f47d9108dcf61";
             httpClient = new HttpClient();
         }
         public async Task<string> SearchByTitle (string title)
         {
             HttpClient httpClient = new HttpClient();
-            var response = await httpClient.GetAsync($"{BaseUrl}?apiKey={ApiKey}&query={title}");
+            var response = await httpClient.GetAsync($"{BaseUrl}?q={title}&app_id={ApiId}&app_key={ApiKey}");
             var result = await response.Content.ReadAsStringAsync();
             
             Console.WriteLine(result);
