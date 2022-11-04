@@ -7,20 +7,23 @@
 @if (@ViewBag.CookTitle != null)
 {
     <h1>Найденные рецепты : @ViewBag.CookTitle</h1>
- 
-      @foreach (var item in @Model.Recipe)
-      {
-    <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="@item.image" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">@item.label</h5>
-    <p class="card-text">@item.ingredientLines</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="row">
+      @foreach (var item in @Model.Recipes)
+     {
+     <div class="card col-4">
+             <img class="card-img-top" src="" alt="Card image cap">
+             <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
   
       
-  </div>
-  </div>
-      }
+             </div>
+         </div>    
+     } 
+     
+   </div>
 
 }
 else

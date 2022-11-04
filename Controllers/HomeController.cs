@@ -25,6 +25,7 @@ namespace API_cook.Controllers
         {
             
             var result = await cookApiService.SearchByTitle(title); // вызвали сервис поиска  
+            ViewBag.Result = result;
             ViewBag.CookTitle = title;  
             return View(result);
         }
