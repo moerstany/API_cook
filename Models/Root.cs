@@ -1,16 +1,29 @@
-﻿namespace API_cook.Models
+﻿using Newtonsoft.Json;
+
+namespace API_cook.Models
 {
     
     
         public class Root
         {
-            public string q { get; set; }
-            public int from { get; set; }
-            public int to { get; set; }
-            public bool more { get; set; }
-            public int count { get; set; }
-            public List<Hit> hits { get; set; }
-        }
+        [JsonProperty("q")]
+        public string Q { get; set; }
+
+        [JsonProperty("from")]
+        public int From { get; set; }
+
+        [JsonProperty("to")]
+        public int To { get; set; }
+
+        [JsonProperty("more")]
+        public bool More { get; set; }
+
+        [JsonProperty("count")]
+        public int Count { get; set; }
+
+        [JsonProperty("hits")]
+        public List<Hit> Hits { get; set; }
+    }
 
 
     

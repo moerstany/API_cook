@@ -1,10 +1,13 @@
-﻿namespace API_cook.Models
+﻿using Newtonsoft.Json;
+
+namespace API_cook.Models
 {
     
     
         public class Hit
         {
-            public Recipe recipe { get; set; }
+        [JsonProperty("recipe")]
+        public Recipe Recipe { get; set; }
         }
 
 

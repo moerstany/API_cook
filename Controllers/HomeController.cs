@@ -24,9 +24,9 @@ namespace API_cook.Controllers
         public async Task<IActionResult> Search(string title)
         {
             
-            ViewBag.Result= await cookApiService.SearchByTitle(title); // вызвали сервис поиска  
+            var result = await cookApiService.SearchByTitle(title); // вызвали сервис поиска  
             ViewBag.CookTitle = title;  
-            return View();
+            return View(result);
         }
         public IActionResult Privacy()
         {

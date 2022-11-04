@@ -17,12 +17,12 @@ namespace API_cook.Servises
             ApiKey ="422c5935a5f0c1ada32f47d9108dcf61";
             httpClient = new HttpClient();
         }
-        public async Task<Recipe> SearchByTitle (string title)
+        public async Task<Root> SearchByTitle (string title)
         {
             
             var response = await httpClient.GetAsync($"{BaseUrl}?q={title}&app_id={ApiId}&app_key={ApiKey}");
             var json = await response.Content.ReadAsStringAsync();
-            var result = JsonSerializer.Deserialize<Recipe>(json);
+            var result = JsonSerializer.Deserialize<Root>(json);
             Console.WriteLine(result);
             return result;
         }

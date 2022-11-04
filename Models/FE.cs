@@ -1,12 +1,19 @@
-﻿namespace API_cook.Models
+﻿using Newtonsoft.Json;
+
+namespace API_cook.Models
 {
     
         public class FE
         {
-            public string label { get; set; }
-            public double quantity { get; set; }
-            public string unit { get; set; }
-        }
+        [JsonProperty("label")]
+        public string Label { get; set; }
+
+        [JsonProperty("quantity")]
+        public double Quantity { get; set; }
+
+        [JsonProperty("unit")]
+        public string Unit { get; set; }
+    }
 
 
     

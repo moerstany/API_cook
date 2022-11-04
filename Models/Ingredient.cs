@@ -1,17 +1,34 @@
-﻿namespace API_cook.Models
+﻿using Newtonsoft.Json;
+
+namespace API_cook.Models
 {
     
         public class Ingredient
         {
-            public string text { get; set; }
-            public double quantity { get; set; }
-            public string measure { get; set; }
-            public string food { get; set; }
-            public double weight { get; set; }
-            public string foodCategory { get; set; }
-            public string foodId { get; set; }
-            public string image { get; set; }
-        }
+        [JsonProperty("text")]
+        public string Text { get; set; }
+
+        [JsonProperty("quantity")]
+        public double Quantity { get; set; }
+
+        [JsonProperty("measure")]
+        public string Measure { get; set; }
+
+        [JsonProperty("food")]
+        public string Food { get; set; }
+
+        [JsonProperty("weight")]
+        public double Weight { get; set; }
+
+        [JsonProperty("foodCategory")]
+        public string FoodCategory { get; set; }
+
+        [JsonProperty("foodId")]
+        public string FoodId { get; set; }
+
+        [JsonProperty("image")]
+        public string Image { get; set; }
+    }
 
 
     
