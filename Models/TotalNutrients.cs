@@ -2,8 +2,8 @@
 
 namespace API_cook.Models
 {
-    public partial class ErrorViewModel
-    {
+
+    
         public class TotalNutrients
         {
             public ENERCKCAL ENERC_KCAL { get; set; }
@@ -50,5 +50,5 @@ namespace API_cook.Models
         }
 
 
-    }
+    
 }

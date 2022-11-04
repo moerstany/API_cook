@@ -1,7 +1,7 @@
 ﻿namespace API_cook.Models
 {
-    public partial class ErrorViewModel
-    {
+  
+    
         public class WATER
         {
             public string label { get; set; }
@@ -10,5 +10,5 @@
         }
 
 
-    }
+    
 }

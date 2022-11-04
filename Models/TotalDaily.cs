@@ -1,7 +1,7 @@
 ﻿namespace API_cook.Models
 {
-    public partial class ErrorViewModel
-    {
+    
+    
         public class TotalDaily
         {
             public ENERCKCAL ENERC_KCAL { get; set; }
@@ -32,5 +32,5 @@
         }
 
 
-    }
+    
 }

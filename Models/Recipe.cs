@@ -1,7 +1,7 @@
 ﻿namespace API_cook.Models
 {
-    public partial class ErrorViewModel
-    {
+    
+    
         public class Recipe
         {
             public string uri { get; set; }
@@ -25,7 +25,7 @@
             public TotalNutrients totalNutrients { get; set; }
             public TotalDaily totalDaily { get; set; }
             public List<Digest> digest { get; set; }
-        }
+        
 
 
     }

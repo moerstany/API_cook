@@ -1,7 +1,6 @@
 ﻿namespace API_cook.Models
 {
-    public partial class ErrorViewModel
-    {
+    
         public class FIBTG
         {
             public string label { get; set; }
@@ -10,5 +9,5 @@
         }
 
 
-    }
+    
 }

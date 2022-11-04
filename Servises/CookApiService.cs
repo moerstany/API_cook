@@ -1,4 +1,7 @@
-﻿namespace API_cook.Servises
+﻿using API_cook.Models;
+using System.Text.Json;
+
+namespace API_cook.Servises
 {
     public class CookApiService//создали объекты в классе
     {
@@ -14,12 +17,12 @@
             ApiKey ="422c5935a5f0c1ada32f47d9108dcf61";
             httpClient = new HttpClient();
         }
-        public async Task<string> SearchByTitle (string title)
+        public async Task<Recipe> SearchByTitle (string title)
         {
-            HttpClient httpClient = new HttpClient();
-            var response = await httpClient.GetAsync($"{BaseUrl}?q={title}&app_id={ApiId}&app_key={ApiKey}");
-            var result = await response.Content.ReadAsStringAsync();
             
+            var response = await httpClient.GetAsync($"{BaseUrl}?q={title}&app_id={ApiId}&app_key={ApiKey}");
+            var json = await response.Content.ReadAsStringAsync();
+            var result = JsonSerializer.Deserialize<Recipe>(json);
             Console.WriteLine(result);
             return result;
         }
