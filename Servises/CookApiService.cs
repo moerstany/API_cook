@@ -10,21 +10,23 @@ namespace API_cook.Servises
         public string ApiKey { get; set; }
         
         private HttpClient httpClient;
-        public CookApiService()//инициализировали
-        {   //https://api.edamam.com/search?q=chicken&app_id=5ac8ac40&app_key=422c5935a5f0c1ada32f47d9108dcf61&from=0&to=3&calories=591-722&health=alcohol-free
-            BaseUrl = "https://api.edamam.com/search";
+        public CookApiService(IHttpClientFactory httpClientFactory)//инициализировали
+        {   ////https://pizza-and-desserts.p.rapidapi.com/pizzas/?q=kebab&rapidapi-key=bcd760c999msh63ffa07e44061fbp1d8e32jsn27b4b51c06a9
+            BaseUrl = "https://pizza-and-desserts.p.rapidapi.com/pizzas/";
             ApiId ="5ac8ac40";
-            ApiKey ="422c5935a5f0c1ada32f47d9108dcf61";
-            httpClient = new HttpClient();
+            ApiKey = "bcd760c999msh63ffa07e44061fbp1d8e32jsn27b4b51c06a9";
+            httpClient = httpClientFactory.CreateClient();
         }
-        public async Task<Recipe> SearchByTitle (string title)
+        public async Task<Search> SearchByTitle (string title)
         {
             
-            var response = await httpClient.GetAsync($"{BaseUrl}?q={title}&app_id={ApiId}&app_key={ApiKey}");
+            var response = await httpClient.GetAsync($"{BaseUrl}?q={title}&rapidapi-key={ApiKey}");
             var json = await response.Content.ReadAsStringAsync();
-            var result = JsonSerializer.Deserialize<Recipe>(json);
-            Console.WriteLine(result);
+            var result = JsonSerializer.Deserialize<Search>(json);
+            
             return result;
+
+           
         }
     }
 }

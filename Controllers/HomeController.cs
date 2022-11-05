@@ -23,10 +23,12 @@ namespace API_cook.Controllers
 
         public async Task<IActionResult> Search(string title)
         {
+            var result = await cookApiService.SearchByTitle(title);// вызвали сервис поиска 
+            ViewBag.Result = result;
+            ViewBag.CookTitle = title;
+            return View(result);
+
             
-            ViewBag.Result= await cookApiService.SearchByTitle(title); // вызвали сервис поиска  
-            ViewBag.CookTitle = title;  
-            return View();
         }
         public IActionResult Privacy()
         {
