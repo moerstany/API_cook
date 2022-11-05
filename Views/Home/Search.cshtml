@@ -3,18 +3,18 @@
     ViewData["Title"] = "Search";
 }
 
-@model CookApi
+@model Root
 @if (@ViewBag.CookTitle != null)
 {
     <h1>Найденные рецепты : @ViewBag.CookTitle</h1>
     <div class="row">
-		@foreach (var item in @Model.Search)
+		@foreach (var item in @Model.Results)
 		{
 			<div class="card col-4">
-				<img src="@item.Img" class="card-img-top" alt="...">
+				<img src="@item.ThumbnailUrl" class="card-img-top" alt="...">
 				<div class="card-body">
 					<h5 class="card-title">@item.Name</h5>
-					<p class="card-text">@item.Description</p>
+					<p class="card-text">@item.Instructions</p>
 				</div>
 			</div>
 		}
