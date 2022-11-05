@@ -7,7 +7,7 @@ namespace API_cook.Models
         public class Root
         {
         [JsonProperty("q")]
-        public string Q { get; set; }
+        public string? Q { get; set; }
 
         [JsonProperty("from")]
         public int From { get; set; }
@@ -22,7 +22,7 @@ namespace API_cook.Models
         public int Count { get; set; }
 
         [JsonProperty("hits")]
-        public List<Hit> Hits { get; set; }
+        public Hit[] Hits { get; set; }
     }
 
 

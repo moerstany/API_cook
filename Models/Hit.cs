@@ -7,7 +7,7 @@ namespace API_cook.Models
         public class Hit
         {
         [JsonProperty("recipe")]
-        public List<Recipe> Recipes { get; set; }
+        public List<Recipe>? Recipe { get; set; }
         }
 
 

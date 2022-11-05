@@ -8,9 +8,9 @@
 {
     <h1>Найденные рецепты : @ViewBag.CookTitle</h1>
   <div class="row">
-      @foreach (var item in @Model.Recipes)
-     {
-     <div class="card col-4">
+       @foreach (var item in @Model.Recipe)
+        {
+          <div class="card col-4">
              <img class="card-img-top" src="" alt="Card image cap">
              <div class="card-body">
                     <h5 class="card-title"></h5>
@@ -20,8 +20,8 @@
   
       
              </div>
-         </div>    
-     } 
+           </div>    
+       } 
      
    </div>
 
